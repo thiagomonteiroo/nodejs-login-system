@@ -1,0 +1,17 @@
+<%- include('layout.ejs'); %>
+
+<center><h1>Seja bem vindo, <%= name %>, com permissões de administrador</h1></center>
+
+<div id="users-list">
+<% for(let i = 0; i < data.length; i++) {%>
+
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"  style="width: 400px;"> <%= data[i].usu_nome %> </li>
+    <li class="list-group-item" style="width: 600px;"> <%= data[i].usu_email %> </li>
+    <li class="list-group-item"> <%= data[i].usu_nivel_acesso %> </li>
+</ul>
+<%}%>
+</div>
+
+</body>
+</html>

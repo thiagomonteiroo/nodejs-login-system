@@ -5,8 +5,8 @@ const { Client } = pkg
 export const db = new Client({
     user: 'postgres',
     host: 'localhost',
-    database: 'xxx',
-    password: 'xxx',
+    database: 'fafram',
+    password: 'ttggttb1618',
     port: 5432,
 })
 

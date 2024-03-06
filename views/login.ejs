@@ -1,46 +1,51 @@
 <%- include('layout.ejs'); %>
-<div class="container">
-<div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <h2>NODE JS LOGIN</h2>  
-                        <div class="card">
-                            <div class="card-header">Login</div>
-                            <div class="card-body">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2>Login</h2>
+                <div class="card">
+                    <div class="card-header">Login</div>
+                    <div class="card-body">
 
-                                <form class="form-horizontal" method="post" action="/login">
+                        <form class="form-horizontal" method="post" action="/login">
 
-                                
-                                    <div class="form-group">
-                                        <label for="email" class="cols-sm-2 control-label">Email</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                                <input type="email" class="form-control" name="email" id="email" required="true" placeholder="Coloque o seu email" />
-                                            </div>
-                                        </div>
+
+                            <div class="form-group">
+                                <label for="email" class="cols-sm-2 control-label">Email</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="email" class="form-control" name="email" id="email" required="true"
+                                            placeholder="Coloque o seu email" />
                                     </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="password" class="cols-sm-2 control-label">Senha</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" name="password" id="password" required="true" placeholder="Coloque a sua senha" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group ">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
-                                    </div>
-                                   
-                                    <a href="/register">Registrar</a>
-                                    
-                                </form>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label for="password" class="cols-sm-2 control-label">Senha</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" id="password"
+                                            required="true" placeholder="Coloque a sua senha" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="form-group ">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+
+                                <a href="/register"><button type="button" class="btn btn-primary btn-lg btn-block">Registrar</button></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
-</div>
-</body>
-</html>
+            </div>
+        </div>
+    </div>
+    </body>
+
+    </html>
