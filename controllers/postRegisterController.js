@@ -1,12 +1,13 @@
 import { db } from "../model/db.js"
 
 export const postRegister = (req, res) => {
-    const query = 'INSERT INTO usuarios (usu_nome, usu_email, usu_senha, usu_nivel_acesso) VALUES ($1, $2, $3, 1)'
+    const query = 'INSERT INTO usuarios (usu_nome, usu_email, usu_senha, usu_nivel_acesso) VALUES ($1, $2, $3, $4)'
 
     const values = [
         req.body.name,
         req.body.email,
-        req.body.password
+        req.body.password,
+        req.body.role
     ]
 
     db.query(query, values, (err) => {
