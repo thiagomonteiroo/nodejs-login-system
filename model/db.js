@@ -1,13 +1,13 @@
-// const { Client } = require('pg')
 import pkg from 'pg'
 const { Client } = pkg
+import 'dotenv/config'
 
 export const db = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'fafram',
-    password: 'ttggttb1618',
-    port: 5432,
+    user: process.env.USER_DB,
+    host: process.env.HOST_DB,
+    database: process.env.DATABASE_DB,
+    password: process.env.PASSWORD_DB,
+    port: process.env.PORT_DB,
 })
 
 db.connect()

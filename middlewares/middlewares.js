@@ -1,6 +1,15 @@
-export const authLogin = (permissions) => {
+export const authLogin = () => {
     return (req, res, next) => {
-        //const userRole = req.body.role
+        if (req.session.email != null) {
+            next()
+        } else {
+            res.redirect('/')
+        }
+    }
+}
+
+export const getRegisterAuth = (permissions) => {
+    return (req, res, next) => {
         const userRole = req.session.role
         if(permissions.includes(userRole)) {
             next()

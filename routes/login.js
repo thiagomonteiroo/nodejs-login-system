@@ -9,6 +9,7 @@ import { postLogin } from "../controllers/postLoginController.js"
 import { postRegister } from "../controllers/postRegisterController.js"
 
 import { authLogin } from "../middlewares/middlewares.js"
+import { getRegisterAuth } from "../middlewares/middlewares.js"
 
 const router = express.Router()
 
@@ -17,9 +18,9 @@ router.get('/', getLogin)
 
 router.get('/register', getRegister)
 
-router.get('/home', getHome)
+router.get('/home', authLogin(), getHome)
 
-router.get('/home/users', authLogin([1]), getHomeUsers)
+router.get('/home/users', authLogin(), getRegisterAuth([1]), getHomeUsers)
 
 
 router.post('/login',  postLogin)

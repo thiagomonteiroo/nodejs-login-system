@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import router from "../routes/login.js";
 import session from "express-session";
 
-
 const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
