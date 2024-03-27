@@ -15,10 +15,10 @@
   <style>
     #users-list {
       position: absolute;
-      top: 30%;
+      top: 20%;
       left: 50%;
       transform:
-        translate(-50%, -50%);
+        translate(-50%);
     }
   </style>
 </head>
@@ -30,6 +30,9 @@
         src="https://storage.googleapis.com/telescope-storage/fafram/settingsFiles/1EtGfiI4hE190Y6n8y5naO9CeIrsJwUnY.png"
         width="30" height="30" alt="">
     </a>
-    
-    <a href="/home/users">Usuarios</a>
+
+    <% if(locals.role && role == 1) { %>
+      <a href="/home/users" class="nav-link" >Usuarios</a>
+    <%}%>
+
   </nav>

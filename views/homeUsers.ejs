@@ -1,6 +1,6 @@
 <%- include('layout.ejs'); %>
 
-<center><h1>Seja bem vindo, <%= name %>, com permissões de administrador</h1></center>
+<center><h1>Seja bem vindo, <%= locals.name %>, com permissões de administrador</h1></center>
 
 <div id="users-list">
 <% for(let i = 0; i < data.length; i++) {%>
@@ -12,6 +12,8 @@
 </ul>
 <%}%>
 </div>
+
+<br>
 
 </body>
 </html>

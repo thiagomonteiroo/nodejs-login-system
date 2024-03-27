@@ -14,7 +14,7 @@ export const getRegisterAuth = (permissions) => {
         if(permissions.includes(userRole)) {
             next()
         } else {
-            return res.status(401).json("Usuario não tem permissão, nivel: "+userRole)
+            return res.status(401).redirect('/home')
         }
     }
 }

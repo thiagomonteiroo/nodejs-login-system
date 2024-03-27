@@ -18,7 +18,6 @@ export const getHome = (req, res) => {
         req.session.name = name
         req.session.role = role
 
-
         return res.status(200).render('../views/home.ejs', { name, email, role })
     })
 }
