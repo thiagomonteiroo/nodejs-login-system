@@ -6,14 +6,28 @@
 <% for(let i = 0; i < data.length; i++) {%>
 
 <ul class="list-group list-group-horizontal">
-    <li class="list-group-item"  style="width: 400px;"> <%= data[i].usu_nome %> </li>
-    <li class="list-group-item" style="width: 600px;"> <%= data[i].usu_email %> </li>
+    <li class="list-group-item"  style="width: 50px;"> <%= data[i].usu_id %> </li>
+    <li class="list-group-item"  style="width: 300px;"> <%= data[i].usu_nome %> </li>
+    <li class="list-group-item" style="width: 500px;"> <%= data[i].usu_email %> </li>
     <li class="list-group-item"> <%= data[i].usu_nivel_acesso %> </li>
+    <li class="list-group-item"> <a href="/home/edit?id=<%= data[i].usu_id %>&name=<%= data[i].usu_nome %>&email=<%= data[i].usu_email %>"><button type="button" class="btn btn-primary btn-lg btn-block login-button">Editar</button></a></li>
+    <li class="list-group-item"> <button type="button" class="btn btn-primary btn-lg btn-block login-button" onclick="delete_user(<%= data[i].usu_id %>)">Excluir</button></li>
 </ul>
 <%}%>
 </div>
 
 <br>
-
+<script>
+    function delete_user(id) {
+        fetch(`/home/users/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            response.json()
+            window.location.href = '/home/users'
+        })
+        .then(data => console.log(data))
+    }
+</script>
 </body>
 </html>

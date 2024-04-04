@@ -2,6 +2,10 @@ import { db } from "../model/db.js"
 import { hash } from 'bcrypt'
 import 'dotenv/config'
 
+export const getRegister = (_, res) => {
+    return res.status(200).render('../views/register.ejs')
+}
+
 export const postRegister =  async (req, res) => {
     const query = 'INSERT INTO usuarios (usu_nome, usu_email, usu_senha, usu_nivel_acesso) VALUES ($1, $2, $3, $4)'
     

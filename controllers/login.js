@@ -1,6 +1,10 @@
 import { db } from "../model/db.js"
 import { compare } from 'bcrypt'
 
+export const getLogin = (_, res) => {
+    return res.status(200).render('../views/login.ejs')
+}
+
 export const postLogin = async (req, res, next) => {
     //a consulta trará o email e a senha juntos, a senha será verificada por codigo
     const query = 'SELECT usu_email, usu_senha FROM usuarios WHERE usu_email = $1'

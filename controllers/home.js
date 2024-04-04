@@ -1,4 +1,5 @@
 import { db } from "../model/db.js"
+import { compare } from 'bcrypt'
 
 export const getHome = (req, res) => {
     const query = 'SELECT usu_nome, usu_nivel_acesso FROM usuarios WHERE usu_email = $1'
