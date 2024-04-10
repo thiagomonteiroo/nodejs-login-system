@@ -14,6 +14,8 @@ export const putEdit = (req, res) => {
 
     const values = [
         req.params.id,
+        req.body.name,
+        req.body.email
     ]
 
     db.query(query, values, (err) => {
