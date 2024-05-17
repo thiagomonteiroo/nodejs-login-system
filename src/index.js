@@ -20,5 +20,4 @@ app.use(session({
 
 app.use("/", router)
 
-
-app.listen(3000, console.log('server is running'))
+app.listen(3000, console.log('server is running on port 3000')) 

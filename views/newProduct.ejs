@@ -1,0 +1,56 @@
+<%- include('layout.ejs'); %>
+<div class="container">
+<div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h2>Registro</h2>
+                        <div class="card">
+                            <div class="card-header">Registro</div>
+                            <div class="card-body">
+
+                                <form class="form-horizontal" method="post" action="/newProduct">
+
+                                    <div class="form-group">
+                                        <label for="name" class="cols-sm-2 control-label">Nome</label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" name="name" id="name" required="true" placeholder="Coloque o seu produto" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <label for="brand" class="cols-sm-2 control-label">Selecione a marca do seu produto</label>
+                                    <select class="form-select" aria-label="brand" name="brand" required>
+                                        <option selected></option>
+
+                                        <% for (let i = 0; i < brand.length; i++) {%>
+                                        <% console.log(brand) %>
+                                        <option value="<%= brand[i].mar_id %>"><%= brand[i].mar_nome %></option>
+                                        <% } %>
+
+
+                                      </select>
+                                    <div class="form-group">
+                                        <label for="price" class="cols-sm-2 control-label">Preço</label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" name="price" id="price" required="true" placeholder="Coloque o preço do seu produto" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group ">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registrar</button>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+
+</body>
+</html>

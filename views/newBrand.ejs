@@ -1,0 +1,35 @@
+<%- include('layout.ejs'); %>
+<div class="container">
+<div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h2>Registro</h2>
+                        <div class="card">
+                            <div class="card-header">Registro</div>
+                            <div class="card-body">
+
+                                <form class="form-horizontal" method="post" action="/home/newBrand">
+
+                                    <div class="form-group">
+                                        <label for="brand" class="cols-sm-2 control-label">Marca</label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" name="brand" id="band" required="true" placeholder="Coloque a sua marca" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>                                   
+                                    <div class="form-group ">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registrar</button>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+
+</body>
+</html>

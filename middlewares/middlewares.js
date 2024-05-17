@@ -1,3 +1,5 @@
+import { db } from "../model/db.js"
+
 export const authLogin = () => {
     return (req, res, next) => {
         if (req.session.email != null) {
@@ -18,3 +20,4 @@ export const getRegisterAuth = (permissions) => {
         }
     }
 }
+

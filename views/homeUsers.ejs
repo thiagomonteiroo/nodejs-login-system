@@ -1,33 +1,76 @@
 <%- include('layout.ejs'); %>
 
-<center><h1>Seja bem vindo, <%= locals.name %>, com permissões de administrador</h1></center>
+    <center>
+        <h1>Seja bem vindo, <%= locals.name %>, com permissões de administrador</h1>
+    </center>
 
-<div id="users-list">
-<% for(let i = 0; i < data.length; i++) {%>
+    <div id="users-list">
+        <% for(let i=0; i < data.length; i++) {%>
 
-<ul class="list-group list-group-horizontal">
-    <li class="list-group-item"  style="width: 50px;"> <%= data[i].usu_id %> </li>
-    <li class="list-group-item"  style="width: 300px;"> <%= data[i].usu_nome %> </li>
-    <li class="list-group-item" style="width: 500px;"> <%= data[i].usu_email %> </li>
-    <li class="list-group-item"> <%= data[i].usu_nivel_acesso %> </li>
-    <li class="list-group-item"> <a href="/home/edit?id=<%= data[i].usu_id %>&name=<%= data[i].usu_nome %>&email=<%= data[i].usu_email %>"><button type="button" class="btn btn-primary btn-lg btn-block login-button">Editar</button></a></li>
-    <li class="list-group-item"> <button type="button" class="btn btn-primary btn-lg btn-block login-button" onclick="delete_user(<%= data[i].usu_id %>)">Excluir</button></li>
-</ul>
-<%}%>
-</div>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item" style="width: 50px;">
+                    <%= data[i].usu_id %>
+                </li>
+                <li class="list-group-item" style="width: 300px;">
+                    <%= data[i].usu_nome %>
+                </li>
+                <li class="list-group-item" style="width: 500px;">
+                    <%= data[i].usu_email %>
+                </li>
+                <li class="list-group-item">
+                    <%= data[i].usu_nivel_acesso %>
+                </li>
+                <li class="list-group-item"> <a
+                        href="/home/edit?id=<%= data[i].usu_id %>&name=<%= data[i].usu_nome %>&email=<%= data[i].usu_email %>"><button
+                            type="button" class="btn btn-primary btn-lg btn-block login-button">Editar</button></a></li>
+                <li class="list-group-item"> <button type="button" class="btn btn-primary btn-lg btn-block login-button"
+                        onclick="delete_user(<%= data[i].usu_id %>)">Excluir</button></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-primary btn-lg btn-block login-button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Sobre</a>
+                </li>
+            </ul>
 
-<br>
-<script>
-    function delete_user(id) {
-        fetch(`/home/users/${id}`, {
-            method: 'DELETE'
-        })
-        .then(response => {
-            response.json()
-            window.location.href = '/home/users'
-        })
-        .then(data => console.log(data))
-    }
-</script>
-</body>
-</html>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" ariahidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Desenvolvedor</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body bg-dark">
+                            <div class="text-white">
+                                <h5> <%= data[i].usu_nome %> </h5>
+                                <h5> E-mail: <%= data[i].usu_email %></h5>
+                                <h5> Nivel de acesso: <%= data[i].usu_nivel_acesso %> </h5>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%}%>
+    </div>
+
+
+
+
+    <br>
+    <script>
+        function delete_user(id) {
+            fetch(`/home/users/${id}`, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    response.json()
+                    window.location.href = '/home/users'
+                })
+                .then(data => console.log(data))
+        }
+    </script>
+    </body>
+
+    </html>

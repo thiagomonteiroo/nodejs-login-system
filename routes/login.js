@@ -1,20 +1,17 @@
 import express from "express"
 
-import { getLogin } from "../controllers/login.js"
-import { getRegister } from "../controllers/register.js"
+import { getLogin, postLogin } from "../controllers/login.js"
+import { getRegister, postRegister } from "../controllers/register.js"
+import { getForgetPassword ,putPassword } from "../controllers/forgetPassword.js"
 import { getHome } from "../controllers/home.js"
 import { getHomeUsers } from "../controllers/usersList.js"
-import { getEdit } from "../controllers/edit.js"
-
-import { postLogin } from "../controllers/login.js"
-import { postRegister } from "../controllers/register.js"
-
-import { putEdit } from "../controllers/edit.js"
+import { getEdit, putEdit } from "../controllers/edit.js"
+import { getBrand, postBrand } from "../controllers/brand.js" 
+import { getProduct, postProduct } from "../controllers/product.js"
 
 import { deleteUser } from "../controllers/delete.js"
 
-import { authLogin } from "../middlewares/middlewares.js"
-import { getRegisterAuth } from "../middlewares/middlewares.js"
+import { authLogin, getRegisterAuth } from "../middlewares/middlewares.js"
 
 const router = express.Router()
 
@@ -23,17 +20,29 @@ router.get('/', getLogin)
 
 router.get('/register', getRegister)
 
+router.get('/forgetPassword', getForgetPassword)
+
 router.get('/home', authLogin(), getHome)
 
 router.get('/home/users', authLogin(), getRegisterAuth([1]), getHomeUsers)
 
 router.get('/home/edit', authLogin(), getEdit)
 
+router.get('/home/newBrand', authLogin(), getRegisterAuth([1]), getBrand)
+
+router.get('/home/newProduct', getProduct)
+
 
 router.post('/login',  postLogin)
 
 router.post('/register', postRegister)
 
+router.post('/home/newBrand', authLogin(), getRegisterAuth([1]), postBrand)
+
+router.post('/home/newProduct', postProduct)
+
+
+router.put('/forgetPassword', putPassword)
 
 router.put('/home/users/:id', putEdit)
 
