@@ -16,6 +16,7 @@ export const getHome = (req, res) => {
         const role = (JSON.parse(data))[0].usu_nivel_acesso
         const email = req.session.email
 
+
         req.session.name = name
         req.session.role = role
 

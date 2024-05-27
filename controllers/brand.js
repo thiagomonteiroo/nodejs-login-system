@@ -1,8 +1,9 @@
 import { db } from "../model/db.js"
 
-export const getBrand = (_, res) => {
+export const getBrand = (req, res) => {
     const role = req.session.role
-    return res.status(200).render('../views/newBrand.ejs', role)
+    const email = req.session.email
+    return res.status(200).render('../views/newBrand.ejs', {role})
 }
 
 export const postBrand =  (req, res) => {

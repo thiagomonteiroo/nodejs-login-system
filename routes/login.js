@@ -7,7 +7,7 @@ import { getHome } from "../controllers/home.js"
 import { getHomeUsers } from "../controllers/usersList.js"
 import { getEdit, putEdit } from "../controllers/edit.js"
 import { getBrand, postBrand } from "../controllers/brand.js" 
-import { getProduct, postProduct } from "../controllers/product.js"
+import { getProducts, getNewProduct, postProduct } from "../controllers/product.js"
 
 import { deleteUser } from "../controllers/delete.js"
 
@@ -28,9 +28,11 @@ router.get('/home/users', authLogin(), getRegisterAuth([1]), getHomeUsers)
 
 router.get('/home/edit', authLogin(), getEdit)
 
-router.get('/home/newBrand', authLogin(), getRegisterAuth([1]), getBrand)
+router.get('/home/newBrand', getBrand)
 
-router.get('/home/newProduct', getProduct)
+router.get('/home/products', getProducts)
+
+router.get('/home/newProduct', getNewProduct)
 
 
 router.post('/login',  postLogin)

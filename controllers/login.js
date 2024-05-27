@@ -12,7 +12,7 @@ export const postLogin = async (req, res, next) => {
     let password = req.body.password
 
     const values = [
-        req.body.email,
+        req.body.email  
     ]
 
     db.query(query, values, (err, data) => {

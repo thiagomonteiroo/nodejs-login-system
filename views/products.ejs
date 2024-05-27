@@ -1,63 +1,49 @@
 <%- include('layout.ejs'); %>
-<div class="container">
-<div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <h2>Registro</h2>
-                        <div class="card">
-                            <div class="card-header">Registro</div>
-                            <div class="card-body">
 
-                                <form class="form-horizontal" method="post" action="/register">
+    <center>
+        <h1>Seja bem vindo, <%= locals.name %>, com permissões de administrador</h1>
+    </center>
 
-                                    <div class="form-group">
-                                        <label for="name" class="cols-sm-2 control-label">Nome</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" name="name" id="name" required="true" placeholder="Coloque o seu nome" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <label for="role" class="cols-sm-2 control-label">Selecione o seu nivel de usuario</label>
-                                    <select class="form-select" aria-label="role" name="role" required>
-                                        <option selected></option>
-                                        <option value="1">Administrador</option>
-                                        <option value="2">Usuario Comum</option>
-                                      </select>
-                                    <div class="form-group">
-                                        <label for="email" class="cols-sm-2 control-label">Email</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" name="email" id="email" required="true" placeholder="Coloque o seu email" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="password" class="cols-sm-2 control-label">Senha</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" name="password" id="password" required="true" placeholder="Coloque a sua senha" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group ">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registrar</button>
-                                        <a href="/"><button type="button" class="btn btn-primary btn-lg btn-block login-button">Login</button></a>
-                                        <a href="/forgetPassword"><button type="button" class="btn btn-primary btn-lg btn-block">Esqueci a senha</button></a>
-                                    </div>
+    <div id="users-list">
+        <% for(let i=0; i < data.length; i++) {%>
+
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item" style="width: 50px;">
+                    <%= data[i].pro_id %>
+                </li>
+                <li class="list-group-item" style="width: 300px;">
+                    <%= data[i].pro_nome %>
+                </li>
+                <li class="list-group-item" style="width: 500px;">
+                    <%= data[i].pro_data_fabr %>
+                </li>
+                <li class="list-group-item">
+                    <%= data[i].preco %>
+                </li>
+                <li class="list-group-item">
+                    <%= data[i].marca %>
+                </li>
+            </ul>
+
+            <%}%>
+    </div>
 
 
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-</div>
 
-</body>
-</html>
+
+    <br>
+    <script>
+        function delete_user(id) {
+            fetch(`/home/users/${id}`, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    response.json()
+                    window.location.href = '/home/users'
+                })
+                .then(data => console.log(data))
+        }
+    </script>
+    </body>
+
+    </html>
